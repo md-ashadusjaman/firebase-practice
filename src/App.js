@@ -5,7 +5,9 @@ import "firebase/auth";
 import firebaseConfig from "./firebase.config";
 
 
-firebase.initializeApp(firebaseConfig);
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
 
 function App() {
 
@@ -74,7 +76,7 @@ const [user,setUser] = useState({
         user.isSignedIn && <div>   
           <p>Welcome, {user.name}</p>
           <p>Email: {user.email}</p>
-          {/* <img src={user.photo} alt=""> </img > */}
+          {/* <img src={user.photo} alt=""> </img> */}
         </div>
       }
       
